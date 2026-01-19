@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Robin, Ejercicio 5</title>
+</head>
+<body>
+
+	<div th:object=${persona}>
+
+		<p>Nombre: <span th:text="*{nombre}">Nulo</span></p> 
+		<p>Apellidos: <span th:text="*{apellidos}">Nulo</span></p> 
+		<p>Edad: <span th:text="*{edad}">Nulo</span></p> 
+	
+		<br>
+			
+		<div th:if="${persona.edad >= 18}">
+			<p>Mayor de Edad</p>
+		</div>
+
+		<div th:if="${persona.edad < 18}">
+			<p>Menor de Edad</p>
+		</div>
+
+		<br>
+
+		<table>
+		
+			<th:block th:each="asignatura:${asignaturas}">
+			
+				<tr>
+				
+					<td th:text=${asignatura}></td>
+				
+				</tr>
+			
+			</th:block>
+		
+		</table>
+		
+	</div>
+	
+</body>
+</html>
